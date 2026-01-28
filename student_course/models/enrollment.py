@@ -1,4 +1,5 @@
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 
 class Enrollment(models.Model):
@@ -15,7 +16,13 @@ class Enrollment(models.Model):
         ('completed', 'Completed'),
         ('dropped', 'Dropped')
     ], string='Status', default='enrolled', required=True)
-    display_name = fields.Char(string='Display Name', compute='_compute_display_name')
+    display_name = fields.Char(string='Display Name', compute='_compute_display_name', store=False)
+
+    _sql_constraints = [
+        ('unique_active_enrollment', 
+         'unique(student_id, course_id, status)', 
+         'Student is already enrolled in this course with this status!')
+    ]
 
     @api.depends('student_id', 'course_id')
     def _compute_display_name(self):
