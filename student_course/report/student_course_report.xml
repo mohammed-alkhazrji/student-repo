@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Report Action -->
+    <record id="action_report_student_course" model="ir.actions.report">
+        <field name="name">Student Course Report</field>
+        <field name="model">student.course.enrollment</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">student_course.report_student_course_document</field>
+        <field name="report_file">student_course.report_student_course_document</field>
+        <field name="binding_model_id" ref="model_student_course_enrollment"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

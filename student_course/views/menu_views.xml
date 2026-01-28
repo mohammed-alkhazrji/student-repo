@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Main Menu -->
+    <menuitem id="menu_student_course_root" name="Student Management" sequence="10"/>
+
+    <!-- Sub Menus -->
+    <menuitem id="menu_student" name="Students" parent="menu_student_course_root" action="action_student" sequence="10"/>
+    <menuitem id="menu_course" name="Courses" parent="menu_student_course_root" action="action_course" sequence="20"/>
+    <menuitem id="menu_enrollment" name="Enrollments" parent="menu_student_course_root" action="action_enrollment" sequence="30"/>
+    
+    <!-- Reports Menu -->
+    <menuitem id="menu_reports" name="Reports" parent="menu_student_course_root" sequence="40"/>
+    <menuitem id="menu_student_course_report" name="Student Course Report" parent="menu_reports" action="action_report_student_course" sequence="10"/>
+</odoo>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Enrollment Tree View -->
+    <record id="view_enrollment_tree" model="ir.ui.view">
+        <field name="name">student.course.enrollment.tree</field>
+        <field name="model">student.course.enrollment</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="student_id"/>
+                <field name="course_id"/>
+                <field name="enrollment_date"/>
+                <field name="status"/>
+                <field name="grade"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Enrollment Form View -->
+    <record id="view_enrollment_form" model="ir.ui.view">
+        <field name="name">student.course.enrollment.form</field>
+        <field name="model">student.course.enrollment</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="student_id"/>
+                            <field name="course_id"/>
+                        </group>
+                        <group>
+                            <field name="enrollment_date"/>
+                            <field name="status"/>
+                            <field name="grade"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Enrollment Action -->
+    <record id="action_enrollment" model="ir.actions.act_window">
+        <field name="name">Enrollments</field>
+        <field name="res_model">student.course.enrollment</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
